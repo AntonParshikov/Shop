@@ -1,0 +1,67 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "Gigabyte Aorus Elite",
+      "description": "╠рЄхЁшэёър  яырЄр Gigabyte",
+      "image": "",
+      "category": 1,
+      "purchase_price": 7500,
+      "creation_date": "2023-07-13",
+      "last_mode_date": "2023-07-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Gigabyte Aero NVidia RTX3060Ti",
+      "description": "┬шфхюърЁЄр Gigabyte",
+      "image": "",
+      "category": 2,
+      "purchase_price": 25000,
+      "creation_date": "2023-07-13",
+      "last_mode_date": "2023-07-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "Itel core i9 11900k",
+      "description": "╧ЁюЎхёёюЁ intel",
+      "image": "",
+      "category": 3,
+      "purchase_price": 20000,
+      "creation_date": "2023-07-13",
+      "last_mode_date": "2023-07-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "Kingston Fury",
+      "description": "╬╟╙ Kingston Fury 16 Gb",
+      "image": "",
+      "category": 4,
+      "purchase_price": 8500,
+      "creation_date": "2023-07-13",
+      "last_mode_date": "2023-07-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "WD Black",
+      "description": "ssd M2 WD Black 2 Tb",
+      "image": "",
+      "category": 5,
+      "purchase_price": 12000,
+      "creation_date": "2023-07-13",
+      "last_mode_date": "2023-07-13"
+    }
+  }
+]
