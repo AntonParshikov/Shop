@@ -1,0 +1,16 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+{% load static %}
+{% load my_tags %}
+<div class="row">
+    <div class="col-md-4">
+        <h2>{{product.name}}</h2>
+        <img src="{{ product.image|my_media }}" alt="{{product.name}}" style="width: 350px; height: 225px;">
+        <p>Category: {{product.category}}</p>
+        <p>Description: {{product.description}}</p>
+        <p>Price: {{product.purchase_price}}</p>
+        <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-success">Update</a>
+    </div>
+</div>
+{% endblock %}

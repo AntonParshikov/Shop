@@ -19,11 +19,11 @@ class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')
     description = models.TextField(max_length=250, **NULLABLE, verbose_name='Описание')
     image = models.ImageField(upload_to='catalog/', **NULLABLE, verbose_name='Изображение')
-    # category = models.CharField(max_length=150, verbose_name='Категория')
     category = models.ForeignKey(Category, **NULLABLE, on_delete=models.CASCADE, verbose_name='Категория')
     purchase_price = models.IntegerField(**NULLABLE, verbose_name='Цена за покупку')
     creation_date = models.DateField(**NULLABLE, verbose_name='Дата создания')
     last_mode_date = models.DateField(**NULLABLE, verbose_name='Дата последнего изменения')
+    in_stock = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.name} : {self.description}'

@@ -1,17 +1,22 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path
-from catalog.views import home, contacts, index, product, category_product
+from catalog.views import CategoryListView, ProductListView, ProductCreateView, ProductUpdateView, \
+    ProductDeleteView, ProductDetailView, CategoryProductDetailView, in_stock
 from . import views
 from .apps import CatalogConfig
 
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('product/', product, name='product'),
-    path('<int:pk>/product/', category_product, name='category_product'),
-    # path('', home),
-    path('contacts/', views.contacts, name='contacts')
+    path('', CategoryListView.as_view(), name='index'),
+    path('category/<int:pk>/', CategoryListView.as_view(), name='category_list'),
+    path('product/', ProductListView.as_view(), name='product'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('product/', ProductListView.as_view(), name='product_list'),
+    path('<int:pk>/product/', CategoryProductDetailView.as_view(), name='category_product'),
+    path('create/', ProductCreateView.as_view(), name='create_product'),
+    path('edit/<int:pk>/', ProductUpdateView.as_view(), name='update_product'),
+    path('delete/<int:pk>/', ProductDeleteView.as_view(), name='product_confirm_delete'),
+    path('stock/<int:pk>/', in_stock, name='in_stock'),
+    path('contacts/', views.contacts, name='contacts'),
 
 ]
