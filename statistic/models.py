@@ -9,7 +9,7 @@ class Statistic(models.Model):
     content = models.TextField(**NULLABLE, verbose_name='Содержимое')
     image = models.ImageField(upload_to='statistic/', **NULLABLE, verbose_name='Превью')
     creation_date = models.DateField(**NULLABLE, verbose_name='Дата создания')
-    publication_feature = models.BooleanField(default=True, **NULLABLE, verbose_name='Признак публикации')
+    publication_feature = models.BooleanField(default=True, verbose_name='Признак публикации')
     views_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
 
     def __str__(self):

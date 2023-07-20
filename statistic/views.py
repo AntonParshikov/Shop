@@ -22,6 +22,7 @@ class StatisticCreateView(CreateView):
 class StatisticUpdateView(UpdateView):
     model = Statistic
     fields = ('title', 'content', 'publication_feature',)
+
     # success_url = reverse_lazy('statistic:list')
 
     def form_valid(self, form):
@@ -44,7 +45,7 @@ class StatisticListView(ListView):
     model = Statistic
 
     def get_queryset(self, *args, **kwargs):
-        queryset = super().queryset(*args, **kwargs)
+        queryset = super().get_queryset(*args, **kwargs)
         queryset = queryset.filter(publication_feature=True)
         return queryset
 
