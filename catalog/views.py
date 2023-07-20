@@ -48,9 +48,7 @@ class ProductCreateView(CreateView):
 class ProductUpdateView(UpdateView):
     model = Product
     fields = ('name', 'category', 'purchase_price', 'image', 'description',)
-
-    def get_success_url(self):
-        return reverse('catalog:category_list', args=[self.object.category.pk])
+    success_url = reverse_lazy('catalog:product')
 
 
 class ProductDeleteView(DeleteView):

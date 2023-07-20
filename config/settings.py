@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'catalog.apps.CatalogConfig',
-    'statistic.apps.StatisticConfig'
+    'statistic.apps.StatisticConfig',
 )
 
 MIDDLEWARE = [

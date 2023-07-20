@@ -12,18 +12,18 @@
         <h2>{{object.name}}</h2>
         <img src="{{ object.image|my_media }}" alt="PC" style="width: 350px; height: 225px;">
         <p>{{object.description}}</p>
-    <div class="btn-group mb-5">
-        <a href="{% url 'catalog:product_detail' object.pk %}" class="btn btn-outline-secondary active"
-           aria-current="page">View</a>
-        <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-success">Update</a>
-        <a href="{% url 'catalog:product_confirm_delete' object.pk %}" class="btn btn-danger">Delete</a>
-        {% if object.in_stock %}
-        <a href="{% url 'catalog:in_stock' object.pk %}" class="btn btn-outline-success">Добавить на склад</a>
-        {% else %}
-        <a href="{% url 'catalog:in_stock' object.pk %}" class="btn btn-outline-secondary">Убрать со склада</a>
-        {% endif %}
+        <div class="btn-group mb-5">
+            <a href="{% url 'catalog:product_detail' object.pk %}" class="btn btn-outline-secondary active"
+               aria-current="page">View</a>
+            <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-success">Update</a>
+            <a href="{% url 'catalog:product_confirm_delete' object.pk %}" class="btn btn-danger">Delete</a>
+            {% if object.in_stock %}
+            <a href="{% url 'catalog:in_stock' object.pk %}" class="btn btn-outline-success">Добавить на склад</a>
+            {% else %}
+            <a href="{% url 'catalog:in_stock' object.pk %}" class="btn btn-outline-secondary">Убрать со склада</a>
+            {% endif %}
+        </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
