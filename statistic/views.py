@@ -56,6 +56,6 @@ class StatisticDetailView(DetailView):
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
         self.object.views_count += 1
-        self.object.save()
+        self.object.save(update_fields=['views_count'])
 
         return self.object
