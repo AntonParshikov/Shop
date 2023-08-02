@@ -12,6 +12,9 @@
         <h2>{{object.name}}</h2>
         <img src="{{ object.image|my_media }}" alt="PC" style="width: 350px; height: 225px;">
         <p>{{object.description}}</p>
+        {% for version in object.version_set.all %}
+        <p>Версия {{ version.version_number }}: {{ version.version_title }}</p>
+        {% endfor %}
         <div class="btn-group mb-5">
             <a href="{% url 'catalog:product_detail' object.pk %}" class="btn btn-outline-secondary active"
                aria-current="page">View</a>
