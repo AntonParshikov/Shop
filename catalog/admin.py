@@ -12,6 +12,7 @@ from catalog.models import Product, Category, Version
 # @admin.register(Category)
 # class CategoryAdmin(admin.ModelAdmin):
 #     list_display = ('pk', 'name', 'description', 'product', )
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'category', 'purchase_price',)
