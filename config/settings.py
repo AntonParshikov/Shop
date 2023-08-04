@@ -136,3 +136,17 @@ AUTH_USER_MODEL = 'users.User'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tosha1703@gmail.com'
+EMAIL_HOST_PASSWORD = 'fallout170393'
+
+
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+# EMAIL_HOST_USER = 'ggg.anthon.parshikov@yandex.ru'
+# EMAIL_HOST_PASSWORD = '324214Kross!'
+

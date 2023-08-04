@@ -15,6 +15,7 @@
         {% for version in object.version_set.all %}
         <p>Версия {{ version.version_number }}: {{ version.version_title }}</p>
         {% endfor %}
+        <p>Client: {{ object.client|default:'не забронировано'}}</p>
         <div class="btn-group mb-5">
             <a href="{% url 'catalog:product_detail' object.pk %}" class="btn btn-outline-secondary active"
                aria-current="page">View</a>
