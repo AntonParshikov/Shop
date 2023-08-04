@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 NULLABLE = {'blank': True, 'null': True}
@@ -24,6 +25,8 @@ class Product(models.Model):
     creation_date = models.DateField(**NULLABLE, verbose_name='Дата создания')
     last_mode_date = models.DateField(**NULLABLE, verbose_name='Дата последнего изменения')
     in_stock = models.BooleanField(default=True)
+
+    client = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='клиент')
 
     def __str__(self):
         return f'{self.name} : {self.description}'

@@ -10,6 +10,7 @@
         <p>Category: {{product.category}}</p>
         <p>Description: {{product.description}}</p>
         <p>Price: {{product.purchase_price}}</p>
+        <p>Client: {{ object.client|default:'не забронировано'}}</p>
         <a href="{% url 'catalog:update_product' object.pk %}" class="btn btn-success">Update</a>
     </div>
 </div>

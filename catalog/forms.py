@@ -13,7 +13,7 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('name', 'description', 'image', 'category',)
+        fields = ('name', 'description', 'image', 'category', )
 
     def clean_name(self):
         forbidden_words = ['казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция',
@@ -38,3 +38,6 @@ class VersionForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Version
         fields = '__all__'
+
+
+
