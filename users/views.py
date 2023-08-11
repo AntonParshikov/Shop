@@ -60,4 +60,4 @@ def generate_password(request):
         recipient_list=[request.user.email]
     )
 
-    return redirect(reverse('users:index'))
+    return redirect(reverse('users:login'))

@@ -1,14 +1,28 @@
+from django.conf import settings
+from django.core.cache import cache
 from django.db.models import Q
 from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
+from django.views.decorators.cache import cache_page
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Category, Product, Version
+from catalog.services import get_categories
 
 
 class CategoryListView(ListView):
     model = Category
+    template_name = 'catalog/category_list.html'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['title'] = 'Список категорий'
+        return context_data
+
+    def get_queryset(self):
+        categories = get_categories()
+        return categories
 
 
 class ProductListView(ListView):
@@ -30,7 +44,7 @@ class ProductDetailView(DetailView):
 
 class CategoryProductDetailView(DetailView):
     model = Category
-    template_name = 'catalog/product.html'
+    template_name = 'catalog/product_list.html'
     context_object_name = 'category'
 
     def get_context_data(self, **kwargs):
@@ -88,7 +102,7 @@ class ProductUpdateView(UpdateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
-    success_url = reverse_lazy('catalog:product')
+    success_url = reverse_lazy('catalog:product_list')
 
 
 def contacts(request):
@@ -109,4 +123,4 @@ def in_stock(request, pk):
 
     product_item.save()
 
-    return redirect(reverse('catalog:product'))
+    return redirect(reverse('catalog:product_list'))
